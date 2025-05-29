@@ -14,7 +14,6 @@ public class OrderControllers {
     OrderServices orderServices;
 
     @PostMapping("/create")
-
     public @ResponseBody OrderResponseDetailsDto checkOut(@RequestBody OrderDetailsDto detailsDto)
     {
         OrderResponseDetailsDto orderResponseDetailsDto = orderServices.checkOut(detailsDto);
