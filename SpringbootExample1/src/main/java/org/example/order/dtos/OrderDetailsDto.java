@@ -1,31 +1,13 @@
 package org.example.order.dtos;
 
 public class OrderDetailsDto {
-    private String itemName;
-    private String itemDesc;
-    private long itemQuantity;
+   private Integer cartDetailsId;
 
-    public String getItemName() {
-        return itemName;
+    public Integer getCartDetailsId() {
+        return cartDetailsId;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
-
-    public String getItemDesc() {
-        return itemDesc;
-    }
-
-    public void setItemDesc(String itemDesc) {
-        this.itemDesc = itemDesc;
-    }
-
-    public long getItemQuantity() {
-        return itemQuantity;
-    }
-
-    public void setItemQuantity(long itemQuantity) {
-        this.itemQuantity = itemQuantity;
+    public void setCartDetailsId(Integer cartDetailsId) {
+        this.cartDetailsId = cartDetailsId;
     }
 }

@@ -1,6 +1,9 @@
 package org.example.users.models;
 
 import jakarta.persistence.*;
+import org.example.cart.models.Cart;
+
+import java.util.List;
 
 @Entity
 @Table(name = "user_datails")
@@ -22,6 +25,10 @@ public class User {
     @OneToOne
     @JoinColumn(name = "profile_id", referencedColumnName = "id")
     private Profile profile;
+
+
+    @OneToMany(mappedBy = "user")
+    private List<Cart> carts;
 
     public Integer getId() {
         return id;
@@ -53,7 +60,6 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-
     }
 
     public String getEmail() {
@@ -70,5 +76,13 @@ public class User {
 
     public void setProfile(Profile profile) {
         this.profile = profile;
+    }
+
+    public List<Cart> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(List<Cart> carts) {
+        this.carts = carts;
     }
 }
