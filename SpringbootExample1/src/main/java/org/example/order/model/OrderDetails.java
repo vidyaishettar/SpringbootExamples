@@ -15,6 +15,8 @@ public class OrderDetails {
     @JoinColumn(name = "cart_details_id",referencedColumnName = "id")
     private Cart cart;
 
+    @OneToOne
+    @JoinColumn(name = "payment_details_id",referencedColumnName = "id")
 
     public Integer getId() {
         return id;
