@@ -10,6 +10,7 @@ public class ProductDetailsDto {
     private String productName;
     private String productQuantity;
     private String productBrandName;
+    //private ProductDetailsDto productDetailsDto;
 
 
     public Integer getId() {

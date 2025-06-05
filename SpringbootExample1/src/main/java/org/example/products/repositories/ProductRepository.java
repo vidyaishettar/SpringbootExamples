@@ -53,18 +53,18 @@ public class ProductRepository {
         if (brandName.equalsIgnoreCase("dell"))
         {
             ProductResponseDto productResponseDto = new ProductResponseDto();
-            productResponseDto.setProductName("xyz");
-            productResponseDto.setBrandName("dell");
-            productResponseDto.setPrice(600.00f);
+//            productResponseDto.setProductName("xyz");
+//            productResponseDto.setBrandName("dell");
+//            productResponseDto.setPrice(600.00f);
             productResponseDto.setStatus("success");
             return productResponseDto;
         }
         else
         {
             ProductResponseDto productResponseDto = new ProductResponseDto();
-            productResponseDto.setProductName("wipe");
-            productResponseDto.setBrandName("puma");
-            productResponseDto.setPrice(100.00f);
+//            productResponseDto.setProductName("wipe");
+//            productResponseDto.setBrandName("puma");
+//            productResponseDto.setPrice(100.00f);
             productResponseDto.setStatus("success");
             return productResponseDto;
         }
@@ -74,7 +74,7 @@ public class ProductRepository {
     public ProductResponseDto updateProduct(String brandName, String status)
     {
         ProductResponseDto productResponseDto = new ProductResponseDto();
-        productResponseDto.setBrandName("Addidas");
+//        productResponseDto.setBrandName("Addidas");
         productResponseDto.setStatus("fail");
         return productResponseDto;
     }

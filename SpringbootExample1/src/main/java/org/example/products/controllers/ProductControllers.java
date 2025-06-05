@@ -27,13 +27,13 @@ public class ProductControllers {
         ProductResponseDto productResponseDto = productService.fetchProduct(productId);
         return productResponseDto;
     }*/
-    @GetMapping
-    //@RequestMapping("/products")
-    public @ResponseBody ProductResponseDto fetchProduct(@RequestParam("brandName")  String brandName, @RequestParam("status") String status)
-    {
-        ProductResponseDto productResponseDto = productService.fetchProduct(brandName,status);
-        return productResponseDto;
-    }
+//    @GetMapping
+//    //@RequestMapping("/products")
+//    public @ResponseBody ProductResponseDto fetchProduct(@RequestParam("brandName")  String brandName, @RequestParam("status") String status)
+//    {
+//        ProductResponseDto productResponseDto = productService.fetchProduct(brandName,status);
+//        return productResponseDto;
+//    }
     @PutMapping
     public ProductResponseDto updateProduct(@RequestParam("brandName")  String brandName, @RequestParam("status") String status)
     {
@@ -41,6 +41,13 @@ public class ProductControllers {
         return productResponseDto;
     }
 
+    @GetMapping("/{id}")
+
+    public @ResponseBody ProductResponseDto fetchProduct(@PathVariable("id") Integer id)
+    {
+        ProductResponseDto productResponseDto = productService.fetchProduct(id);
+        return  productResponseDto;
+    }
 
 
 }

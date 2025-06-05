@@ -5,6 +5,7 @@ import org.example.payment.dtos.PaymentResponseDetailsDto;
 import org.example.payment.models.PaymentDetailsModel;
 import org.example.payment.repositories.PaymentRepositories;
 import org.example.payment.repositories.intf.PaymentRepositoryJPAIntf;
+import org.example.payment.utility.RazorPay;
 import org.example.users.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,10 @@ import java.util.Optional;
 @Service
 
 public class PaymentServices {
+    @Autowired
+    private RazorPay razorPay;
+
+
 
     @Autowired
     PaymentRepositories paymentRepositories;
@@ -28,7 +33,9 @@ public class PaymentServices {
     }
 
     public PaymentResponseDetailsDto createwithJPA(PaymentDetailsDto paymentDetails)
+
     {
+
         PaymentDetailsModel paymentDetailsModel = new PaymentDetailsModel();
         User user = new User();
         user.setId(paymentDetails.getUserDetailsId());
@@ -42,6 +49,8 @@ public class PaymentServices {
 
     public PaymentResponseDetailsDto findPaymentById(Integer paymentId)
     {
+
+        System.out.println("key = " +razorPay.getKey());
         Optional<PaymentDetailsModel> payment = paymentRepositoryJPA.findById(paymentId);
         PaymentResponseDetailsDto paymentResponseDetailsDto = new PaymentResponseDetailsDto();
         paymentResponseDetailsDto.setPaymentDetailsModel(payment.get());

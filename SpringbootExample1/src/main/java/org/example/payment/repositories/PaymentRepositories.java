@@ -48,11 +48,18 @@ public class PaymentRepositories {
         SessionFactory sf = config.buildSessionFactory(reg);
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
-        session.persist(paymentDetailsModel);
 
-        tx.commit();
+        try {
+            session.persist(paymentDetailsModel);
+            //session.persist(xyz);
+            tx.commit();
+            paymentResponseDetailsDto.setStatus("success");
+        }
+        catch (Exception e){
+            tx.rollback();
+            paymentResponseDetailsDto.setStatus("fail");
+        }
 
-        paymentResponseDetailsDto.setStatus("success");
         return paymentResponseDetailsDto;
 
 
