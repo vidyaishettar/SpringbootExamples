@@ -1,5 +1,6 @@
 package org.example.users.controllers;
 
+import jakarta.validation.Valid;
 import org.example.users.dtos.AuthenticationDto;
 import org.example.users.dtos.AuthenticationResponse;
 import org.example.users.services.AuthenticationService;
@@ -13,7 +14,7 @@ public class AuthenticationController {
     AuthenticationService authenticationService;
 
     @PostMapping("/login")
-    public @ResponseBody AuthenticationResponse login(@RequestBody AuthenticationDto input)
+    public @ResponseBody AuthenticationResponse login(@Valid @RequestBody AuthenticationDto input)
     {
         //System.out.println("login success " +input.getUserName() + " password - " +input.getPassword());
         AuthenticationResponse response = authenticationService.login(input);
